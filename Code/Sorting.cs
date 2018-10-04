@@ -9,7 +9,14 @@ namespace Code
 
         public static int[] Merge(int[] arr1, int[] arr2)
         {
+            if (arr1 == null)
+                arr1 = new int[0];
+
+            if (arr2 == null)
+                arr2 = new int[0];
+
             var resLen = arr1.Length + arr2.Length;
+
             var resArr = new int[resLen];
 
             int i = 0, j = 0;
@@ -35,7 +42,7 @@ namespace Code
                 else
                 {
                     resArr[k] = arr2[j];
-                    k++;
+                    j++;
                 }
             }
 
