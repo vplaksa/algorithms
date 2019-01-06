@@ -6,10 +6,35 @@ namespace UnitTestProject1
     public class TestAnagram
     {
         [TestMethod]
-        public void IsAnagramTest()
+        public void WhenAnagramSamelen_ThenShouldBeTrue()
         {
             var s1 = "abc";
             var s2 = "cba";
+
+            AnagramAssert(s1, s2);
+
+            s1 = "тест";
+            s2 = "естт";
+
+            AnagramAssert(s1, s2);
+
+            s1 = "aabb";
+            s2 = "bbaa";
+
+            AnagramAssert(s1, s2);
+
+            s1 = "aa";
+            s2 = "aa";
+
+            AnagramAssert(s1, s2);
+
+            s1 = "й";
+            s2 = "й";
+
+            AnagramAssert(s1, s2);
+
+            s1 = "фб";
+            s2 = "бф";
 
             AnagramAssert(s1, s2);
         }
@@ -23,14 +48,7 @@ namespace UnitTestProject1
             AnagramAssert(s1, s2);
         }
 
-        [TestMethod]
-        public void IsAnagramTest_Negative2()
-        {
-            var s1 = "тест";
-            var s2 = "естт";
-
-            AnagramAssert(s1, s2);
-        }
+       
 
         [TestMethod]
         public void IsAnagramTest_Negative3()
@@ -41,6 +59,6 @@ namespace UnitTestProject1
             AnagramAssert(s1, s2);
         }
 
-        private void AnagramAssert(string s1, string s2) => Assert.IsTrue(Code.Anagram.IsAnagramBuffer(s1, s2));
+        private void AnagramAssert(string s1, string s2) => Assert.IsTrue(Code.Anagram.IsAnagram(s1, s2));
     }
 }
